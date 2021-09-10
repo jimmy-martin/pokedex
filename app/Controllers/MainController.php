@@ -2,6 +2,8 @@
 
 namespace Pokedex\Controllers;
 
+use Pokedex\Models\Pokemon;
+
 class MainController
 {
     /**
@@ -21,15 +23,22 @@ class MainController
     }
 
     /**
-     * Show home views
+     * Show home view
      */
     public function home()
     {
-        $this->show('home');
+        $pokemonModel = new Pokemon();
+        $pokemons = $pokemonModel->findAll();
+
+        dump($pokemons);
+
+        $this->show('home', [
+            'pokemons' => $pokemons,
+        ]);
     }
 
     /**
-     * Show details views
+     * Show details view
      */
     public function details()
     {
