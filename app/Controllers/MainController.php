@@ -46,9 +46,11 @@ class MainController
     {
         $pokemonModel = new Pokemon();
         $pokemon = $pokemonModel->find($params['id']);
+        $pokemons = $pokemon->getTypes();
 
         $this->show('details', [
             'pokemon' => $pokemon,
+            'pokemons' => $pokemons
         ]);
     }
 }

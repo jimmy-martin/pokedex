@@ -4,6 +4,7 @@ namespace Pokedex\Models;
 
 use Pokedex\Utils\Database;
 use PDO;
+use Pokedex\Models\PokemonType;
 
 class Pokemon
 {
@@ -23,7 +24,7 @@ class Pokemon
      * @param integer $id
      * @return object pokemon object
      */
-    public function find($id)
+    public function find(int $id)
     {
         $pdo = Database::getPDO();
         $sql = 'SELECT * FROM `pokemon` WHERE `number` = ' . $id;
@@ -45,8 +46,25 @@ class Pokemon
     }
 
     /**
+     * Return all pokemon' types
+     *
+     * @return object pokemons objects
+     */
+    public function findAllTypes(int $id)
+    {
+        $pdo = Database::getPDO();
+        $sql = 'SELECT *
+                FROM pokemon
+                INNER JOIN pokemon_type
+                ON pokemon.number = pokemon_type.pokemon_number
+                WHERE number = ' . $id;
+        $statement = $pdo->query($sql);
+        return $statement->fetchAll(PDO::FETCH_CLASS, self::class); 
+    }
+
+    /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -54,7 +72,7 @@ class Pokemon
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -64,7 +82,7 @@ class Pokemon
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -74,7 +92,7 @@ class Pokemon
 
     /**
      * Get the value of pv
-     */ 
+     */
     public function getPv()
     {
         return $this->pv;
@@ -84,7 +102,7 @@ class Pokemon
      * Set the value of pv
      *
      * @return  self
-     */ 
+     */
     public function setPv($pv)
     {
         $this->pv = $pv;
@@ -94,7 +112,7 @@ class Pokemon
 
     /**
      * Get the value of attack
-     */ 
+     */
     public function getAttack()
     {
         return $this->attack;
@@ -104,7 +122,7 @@ class Pokemon
      * Set the value of attack
      *
      * @return  self
-     */ 
+     */
     public function setAttack($attack)
     {
         $this->attack = $attack;
@@ -114,7 +132,7 @@ class Pokemon
 
     /**
      * Get the value of defense
-     */ 
+     */
     public function getDefense()
     {
         return $this->defense;
@@ -124,7 +142,7 @@ class Pokemon
      * Set the value of defense
      *
      * @return  self
-     */ 
+     */
     public function setDefense($defense)
     {
         $this->defense = $defense;
@@ -134,7 +152,7 @@ class Pokemon
 
     /**
      * Get the value of spe_attack
-     */ 
+     */
     public function getSpeAttack()
     {
         return $this->spe_attack;
@@ -144,7 +162,7 @@ class Pokemon
      * Set the value of spe_attack
      *
      * @return  self
-     */ 
+     */
     public function setSpeAttack($spe_attack)
     {
         $this->spe_attack = $spe_attack;
@@ -154,7 +172,7 @@ class Pokemon
 
     /**
      * Get the value of spe_defense
-     */ 
+     */
     public function getSpeDefense()
     {
         return $this->spe_defense;
@@ -164,7 +182,7 @@ class Pokemon
      * Set the value of spe_defense
      *
      * @return  self
-     */ 
+     */
     public function setSpeDefense($spe_defense)
     {
         $this->spe_defense = $spe_defense;
@@ -174,7 +192,7 @@ class Pokemon
 
     /**
      * Get the value of number
-     */ 
+     */
     public function getNumber()
     {
         return $this->number;
@@ -184,7 +202,7 @@ class Pokemon
      * Set the value of number
      *
      * @return  self
-     */ 
+     */
     public function setNumber($number)
     {
         $this->number = $number;
@@ -194,7 +212,7 @@ class Pokemon
 
     /**
      * Get the value of speed
-     */ 
+     */
     public function getSpeed()
     {
         return $this->speed;
@@ -204,11 +222,18 @@ class Pokemon
      * Set the value of speed
      *
      * @return  self
-     */ 
+     */
     public function setSpeed($speed)
     {
         $this->speed = $speed;
 
         return $this;
+    }
+
+    public function getTypes()
+    {
+        $pokemonTypeModel = new PokemonType();
+        $pokemonTypes = $pokemonTypeModel->findAllTypes($this->number);
+        return $pokemonTypes;
     }
 }

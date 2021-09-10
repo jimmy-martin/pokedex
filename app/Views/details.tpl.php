@@ -4,12 +4,11 @@
         <img class="specs__img" src="<?= $_SERVER['BASE_URI'] ?>/img/<?= $pokemon->getNumber() ?>.png" alt="<?= $pokemon->getName() ?>">
         <div class="specs__details">
             <h3 class="specs__title">#<?= $pokemon->getNumber() ?> <?= $pokemon->getName() ?></h3>
-            <a href="#" class="specs__type-link">
-                Plante
-            </a>
-            <a href="#" class="specs__type-link">
-                Poison
-            </a>
+            <?php foreach ($pokemons as $type) : ?>
+                <a style="background-color: #<?= $type->getColor() ?>" href="#" class="specs__type-link">
+                    <?= $type->getName() ?>
+                </a>
+            <?php endforeach ?>
             <div class="specs__stats">
                 <h4 class="stats__title">Statistiques</h4>
                 <div class="stats-group">
