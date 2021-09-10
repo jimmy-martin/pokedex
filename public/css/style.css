@@ -109,12 +109,12 @@ a:hover {
     max-width: 400px;
 }
 
-.specs__type-link{
+.specs__type-link {
     border-radius: 5px;
-    padding:.5rem;
-    color:white;
+    padding: .5rem;
+    color: white;
     background-color: black;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .specs__details {
@@ -127,45 +127,67 @@ a:hover {
 
 .specs__title {
     margin-top: 2rem;
-    font-size: 1.7rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.specs__stats {
+    margin-top: 1.4rem;
+}
+
+.stats__title {
+    font-size: 1.6rem;
     font-weight: bold;
     margin-bottom: 30px;
 }
 
-.specs__stats{
-    margin-top: 1.4rem;
-}
-
-.stats__title{
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom:20px;
-}
-
-.stats-group{
-}
-
-.stat{
+.stat {
     display: flex;
     justify-content: space-between;
-    margin-bottom:.7rem
+    margin-bottom: .7rem
 }
 
-.stat label{
-    width:calc(100% / 3);
+.stat label {
+    width: calc(100% / 3);
+
 }
 
-.stat progress{
+.stat label,
+.stat span {
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.stat progress {
     width: calc(100% / 3 * 2);
     margin-left: 4rem;
 }
 
-.center{
+.center {
     margin-top: 1.5rem;
     text-align: center;
 }
 
-.detail__link{
+.detail__link {
     color: #f9d3d3;
     font-size: 1.3rem;
+}
+
+progress {
+    height: 2.2rem;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-bar {
+    border-radius: 10px;
+    background-color: var(--progress-color);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--header-color);
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
