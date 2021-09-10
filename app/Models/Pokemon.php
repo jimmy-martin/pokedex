@@ -8,14 +8,14 @@ use PDO;
 class Pokemon
 {
     protected $id;
-    protected $nom;
+    protected $name;
     protected $pv;
-    protected $attaque;
+    protected $attack;
     protected $defense;
-    protected $attaque_spe;
-    protected $defense_spe;
-    protected $vitesse;
-    protected $numero;
+    protected $spe_attack;
+    protected $spe_defense;
+    protected $speed;
+    protected $number;
 
     /**
      * Return a pokemon object by its id
@@ -26,7 +26,7 @@ class Pokemon
     public function find($id)
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM `pokemon` WHERE `id` = ' . $id;
+        $sql = 'SELECT * FROM `pokemon` WHERE `number` = ' . $id;
         $statement = $pdo->query($sql);
         return $statement->fetchObject(self::class);
     }
@@ -53,21 +53,21 @@ class Pokemon
     }
 
     /**
-     * Get the value of nom
+     * Get the value of name
      */ 
     public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
-     * Set the value of nom
+     * Set the value of name
      *
      * @return  self
      */ 
-    public function setName($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -93,21 +93,21 @@ class Pokemon
     }
 
     /**
-     * Get the value of attaque
+     * Get the value of attack
      */ 
     public function getAttack()
     {
-        return $this->attaque;
+        return $this->attack;
     }
 
     /**
-     * Set the value of attaque
+     * Set the value of attack
      *
      * @return  self
      */ 
-    public function setAttack($attaque)
+    public function setAttack($attack)
     {
-        $this->attaque = $attaque;
+        $this->attack = $attack;
 
         return $this;
     }
@@ -133,61 +133,41 @@ class Pokemon
     }
 
     /**
-     * Get the value of attaque_spe
+     * Get the value of spe_attack
      */ 
-    public function getSpecAttaque()
+    public function getSpeAttack()
     {
-        return $this->attaque_spe;
+        return $this->spe_attack;
     }
 
     /**
-     * Set the value of attaque_spe
+     * Set the value of spe_attack
      *
      * @return  self
      */ 
-    public function setSpecAttaque($attaque_spe)
+    public function setSpeAttack($spe_attack)
     {
-        $this->attaque_spe = $attaque_spe;
+        $this->spe_attack = $spe_attack;
 
         return $this;
     }
 
     /**
-     * Get the value of defense_spe
+     * Get the value of spe_defense
      */ 
-    public function getSpecDefense()
+    public function getSpeDefense()
     {
-        return $this->defense_spe;
+        return $this->spe_defense;
     }
 
     /**
-     * Set the value of defense_spe
+     * Set the value of spe_defense
      *
      * @return  self
      */ 
-    public function setSpecDefense($defense_spe)
+    public function setSpeDefense($spe_defense)
     {
-        $this->defense_spe = $defense_spe;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of speed
-     */ 
-    public function getSpeed()
-    {
-        return $this->vitesse;
-    }
-
-    /**
-     * Set the value of speed
-     *
-     * @return  self
-     */ 
-    public function setSpeed($vitesse)
-    {
-        $this->vitesse = $vitesse;
+        $this->spe_defense = $spe_defense;
 
         return $this;
     }
@@ -197,7 +177,7 @@ class Pokemon
      */ 
     public function getNumber()
     {
-        return $this->numero;
+        return $this->number;
     }
 
     /**
@@ -205,9 +185,29 @@ class Pokemon
      *
      * @return  self
      */ 
-    public function setNumber($numero)
+    public function setNumber($number)
     {
-        $this->numero = $numero;
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of speed
+     */ 
+    public function getSpeed()
+    {
+        return $this->speed;
+    }
+
+    /**
+     * Set the value of speed
+     *
+     * @return  self
+     */ 
+    public function setSpeed($speed)
+    {
+        $this->speed = $speed;
 
         return $this;
     }

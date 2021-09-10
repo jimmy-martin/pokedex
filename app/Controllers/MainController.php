@@ -15,6 +15,8 @@ class MainController
      */
     protected function show(string $viewName, array $viewDatas = [])
     {
+        // $router global to use it for generate links in views (with $router->generate)
+        global $router;
         extract($viewDatas);
 
         require_once __DIR__ . '/../Views/partials/header.tpl.php';
@@ -40,8 +42,13 @@ class MainController
     /**
      * Show details view
      */
-    public function details()
+    public function details($params)
     {
-        $this->show('details');
+        $pokemonModel = new Pokemon();
+        $pokemon = $pokemonModel->find($params['id']);
+
+        $this->show('details', [
+            'pokemon' => $pokemon,
+        ]);
     }
 }
