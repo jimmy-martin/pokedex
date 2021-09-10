@@ -2,6 +2,8 @@
 
 namespace Pokedex\Controllers;
 
+use Pokedex\Models\Pokemon;
+
 class MainController
 {
     /**
@@ -13,6 +15,8 @@ class MainController
      */
     protected function show(string $viewName, array $viewDatas = [])
     {
+        // $router global to use it for generate links in views (with $router->generate)
+        global $router;
         extract($viewDatas);
 
         require_once __DIR__ . '/../Views/partials/header.tpl.php';
@@ -21,18 +25,32 @@ class MainController
     }
 
     /**
-     * Show home views
+     * Show home view
      */
     public function home()
     {
-        $this->show('home');
+        $pokemonModel = new Pokemon();
+        $pokemons = $pokemonModel->findAll();
+
+        dump($pokemons);
+
+        $this->show('home', [
+            'pokemons' => $pokemons,
+        ]);
     }
 
     /**
-     * Show details views
+     * Show details view
      */
-    public function details()
+    public function details($params)
     {
-        $this->show('details');
+        $pokemonModel = new Pokemon();
+        $pokemon = $pokemonModel->find($params['id']);
+        $pokemons = $pokemon->getTypes();
+
+        $this->show('details', [
+            'pokemon' => $pokemon,
+            'pokemons' => $pokemons
+        ]);
     }
 }

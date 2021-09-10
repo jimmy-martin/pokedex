@@ -9,7 +9,7 @@ $router->addRoutes([
         'GET',
         '/',
         [
-            'controller' => '\\Pokedex\\Controllers\\MainController',
+            'controller' => 'MainController',
             'method' => 'home'
         ],
         'main-home'
@@ -18,7 +18,7 @@ $router->addRoutes([
         'GET',
         '/details/[i:id]',
         [
-            'controller' => '\\Pokedex\\Controllers\\MainController',
+            'controller' => 'MainController',
             'method' => 'details'
         ],
         'main-details'
@@ -31,7 +31,7 @@ if (!$routeInformations) {
     exit('Cette page n\'existe pas !');
 }
 
-$controllerName = $routeInformations['target']['controller'];
+$controllerName = '\\Pokedex\\Controllers\\' . $routeInformations['target']['controller'];
 $methodName = $routeInformations['target']['method'];
 
 $controller = new $controllerName();
