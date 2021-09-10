@@ -5,3 +5,54 @@
     --details-background-color: #ab3838;
     --progress-color: #632b2b;
 }
+
+html{
+    font-family: 'Bree Serif', serif;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--progress-color);
+}
+
+.container{
+    margin: 1rem;
+}
+
+.header{
+    background-color: var(--header-color);
+    color: var(--background-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.header__title{
+    font-size: 2rem;
+}
+
+.header__link,
+.menu__link{
+    color: var(--background-color);
+}
+
+.menu{
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+.menu__list{
+    display: flex;
+}
+
+.menu__item{
+    margin-left: 15px;
+}
