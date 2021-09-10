@@ -17,12 +17,12 @@
     <div class="container">
         <header class="header">
             <h1 class="header__title">
-                <a class="header__link" href="#">Pokédex</a>
+                <a class="header__link" href="<?= $router->generate('main-home') ?>">Pokédex</a>
             </h1>
             <nav class="menu">
                 <ul class="menu__list">
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Liste</a>
+                        <a class="menu__link" href="<?= $router->generate('main-home') ?>">Liste</a>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link" href="#">Types</a>
