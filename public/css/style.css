@@ -33,6 +33,7 @@ a:hover{
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
+    margin-bottom: 2rem;
 }
 
 .header__title{
@@ -55,4 +56,29 @@ a:hover{
 
 .menu__item{
     margin-left: 15px;
+}
+
+.cards-group{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: var(--card-color);
+    margin:.7rem;
+    padding:1rem;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.card__title{
+    font-size: 1.4rem;
+}
+
+.card__link{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #f9d3d3;
+    text-decoration: none;
 }
