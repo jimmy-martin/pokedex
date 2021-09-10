@@ -48,6 +48,6 @@
         </div>
     </div>
     <div class="center">
-        <a class="detail__link" href="#">Revenir à la liste</a>
+        <a class="detail__link" href="<?= $router->generate('main-home') ?>">Revenir à la liste</a>
     </div>
 </div>

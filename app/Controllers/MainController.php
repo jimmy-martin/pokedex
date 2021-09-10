@@ -32,8 +32,6 @@ class MainController
         $pokemonModel = new Pokemon();
         $pokemons = $pokemonModel->findAll();
 
-        dump($pokemons);
-
         $this->show('home', [
             'pokemons' => $pokemons,
         ]);
