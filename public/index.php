@@ -36,7 +36,7 @@ $router->addRoutes([
         'GET',
         '/types/[i:id]',
         [
-            'controller' => 'TypeController',
+            'controller' => 'ListController',
             'method' => 'type'
         ],
         'list-type'
