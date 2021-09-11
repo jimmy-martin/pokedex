@@ -191,3 +191,25 @@ progress::-webkit-progress-value {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+.type-desc {
+    color: var(--header-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.types {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.types__link {
+    padding: 2rem;
+    text-align: center;
+    margin: 10px;
+    width: 20%;
+    border-radius: 20px;
+    color: var(--header-color);
+    font-size: 1.3rem;
+}
