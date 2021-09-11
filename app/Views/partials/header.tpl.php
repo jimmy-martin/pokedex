@@ -25,7 +25,7 @@
                         <a class="menu__link" href="<?= $router->generate('main-home') ?>">Liste</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Types</a>
+                        <a class="menu__link" href="<?= $router->generate('list-types') ?>">Types</a>
                     </li>
                 </ul>
             </nav>

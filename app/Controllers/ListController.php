@@ -2,6 +2,8 @@
 
 namespace Pokedex\Controllers;
 
+use Pokedex\Models\Type;
+
 class ListController extends CoreController
 {
     /**
@@ -9,7 +11,12 @@ class ListController extends CoreController
      */
     public function types()
     {
-        $this->show('types');
+        $typeModel = new Type();
+        $types = $typeModel->findAll();
+
+        $this->show('types', [
+            'types' => $types
+        ]);
     }
 
     /**

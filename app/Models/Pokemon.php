@@ -6,10 +6,8 @@ use Pokedex\Utils\Database;
 use PDO;
 use Pokedex\Models\PokemonType;
 
-class Pokemon
+class Pokemon extends CoreModel
 {
-    protected $id;
-    protected $name;
     protected $pv;
     protected $attack;
     protected $defense;
@@ -43,51 +41,6 @@ class Pokemon
         $sql = 'SELECT * FROM `pokemon`';
         $statement = $pdo->query($sql);
         return $statement->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
-
-    /**
-     * Return all pokemon' types
-     *
-     * @return object pokemons objects
-     */
-    public function findAllTypes(int $id)
-    {
-        $pdo = Database::getPDO();
-        $sql = 'SELECT *
-                FROM pokemon
-                INNER JOIN pokemon_type
-                ON pokemon.number = pokemon_type.pokemon_number
-                WHERE number = ' . $id;
-        $statement = $pdo->query($sql);
-        return $statement->fetchAll(PDO::FETCH_CLASS, self::class); 
-    }
-
-    /**
-     * Get the value of id
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get the value of name
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**

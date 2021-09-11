@@ -7,10 +7,8 @@ use PDO;
 
 class PokemonType
 {
-    protected $id;
     protected $pokemon_number;
     protected $type_id;
-    protected $name;
     protected $color;
 
     /**
@@ -24,14 +22,6 @@ class PokemonType
         $sql = 'SELECT * FROM pokemon_type INNER JOIN type ON pokemon_type.type_id = type.id WHERE pokemon_type.pokemon_number = ' . $number;
         $statement = $pdo->query($sql);
         return $statement->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
-
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -53,15 +43,7 @@ class PokemonType
 
         return $this;
     }
-
-    /**
-     * Get the value of type_id
-     */ 
-    public function getTypeId()
-    {
-        return $this->type_id;
-    }
-
+    
     /**
      * Set the value of type_id
      *
