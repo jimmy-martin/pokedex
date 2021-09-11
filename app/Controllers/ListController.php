@@ -23,7 +23,7 @@ class ListController extends CoreController
      * Show details view
      */
     public function type($params)
-    {
+    {       
         $this->show('type');
     }
 }

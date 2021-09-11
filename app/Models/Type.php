@@ -8,6 +8,14 @@ use PDO;
 class Type extends CoreModel
 {
     protected $color;
+
+    public function find($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM `type` WHERE `id` = ' . $id;
+        $statement = $pdo->query($sql);
+        return $statement->fetchObject(self::class);
+    }
     
     public function findAll()
     {
