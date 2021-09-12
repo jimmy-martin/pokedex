@@ -5,7 +5,7 @@
         <div class="specs__details">
             <h3 class="specs__title">#<?= $pokemon->getNumber() ?> <?= $pokemon->getName() ?></h3>
             <?php foreach ($pokemons as $type) : ?>
-                <a style="background-color: #<?= $type->getColor() ?>" href="#" class="specs__type-link">
+                <a style="background-color: #<?= $type->getColor() ?>" href="<?= $router->generate('list-type', ['id' => $type->getId()]) ?>" class="specs__type-link">
                     <?= $type->getName() ?>
                 </a>
             <?php endforeach ?>
