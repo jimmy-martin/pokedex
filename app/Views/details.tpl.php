@@ -5,7 +5,7 @@
         <div class="specs__details">
             <h3 class="specs__title">#<?= $pokemon->getNumber() ?> <?= $pokemon->getName() ?></h3>
             <?php foreach ($pokemons as $type) : ?>
-                <a style="background-color: #<?= $type->getColor() ?>" href="#" class="specs__type-link">
+                <a style="background-color: #<?= $type->getColor() ?>" href="<?= $router->generate('list-type', ['id' => $type->getId()]) ?>" class="specs__type-link">
                     <?= $type->getName() ?>
                 </a>
             <?php endforeach ?>
@@ -48,6 +48,6 @@
         </div>
     </div>
     <div class="center">
-        <a class="detail__link" href="<?= $router->generate('main-home') ?>">Revenir à la liste</a>
+        <a class="detail__link" href="javascript:history.go(-1)">Revenir en arrière</a>
     </div>
 </div>

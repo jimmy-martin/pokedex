@@ -22,6 +22,24 @@ $router->addRoutes([
             'method' => 'details'
         ],
         'main-details'
+    ],
+    [
+        'GET',
+        '/types',
+        [
+            'controller' => 'ListController',
+            'method' => 'types'
+        ],
+        'list-types'
+    ],
+    [
+        'GET',
+        '/types/[i:id]',
+        [
+            'controller' => 'ListController',
+            'method' => 'type'
+        ],
+        'list-type'
     ]
 ]);
 $routeInformations = $router->match();
