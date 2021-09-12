@@ -9,7 +9,13 @@ class Type extends CoreModel
 {
     protected $color;
 
-    public function find($id)
+    /**
+     * Return a type
+     *
+     * @param int $id
+     * @return object type object
+     */
+    public function find(int $id)
     {
         $pdo = Database::getPDO();
         $sql = 'SELECT * FROM `type` WHERE `id` = ' . $id;
@@ -17,12 +23,24 @@ class Type extends CoreModel
         return $statement->fetchObject(self::class);
     }
     
+    /**
+     * Return all the types
+     *
+     * @return objects types objects
+     */
     public function findAll()
     {
         $pdo = Database::getPDO();
         $sql = 'SELECT * FROM `type`';
         $statement = $pdo->query($sql);
         return $statement->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+    public function getPokemons()
+    {
+        $pokemonTypeModel = new PokemonType();
+        $typesPokemon = $pokemonTypeModel->findAllPokemons($this->id);
+        return $typesPokemon;
     }
 
     /**
