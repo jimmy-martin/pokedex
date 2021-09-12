@@ -2,10 +2,10 @@
 <div class="types">
     <?php foreach ($types as $type) : ?>
         <a href="<?= $router->generate('list-type', ['id' => $type->getId()]) ?>" class="types__link" style="background-color: <?= $type->getColor() ?>">
-        <?= $type->getName() ?>
+            <?= $type->getName() ?>
         </a>
     <?php endforeach ?>
 </div>
 <div class="center">
-    <a class="detail__link" href="<?= $router->generate('main-home') ?>">Revenir à la liste</a>
+    <a class="detail__link" href="javascript:history.go(-1)">Revenir en arrière</a>
 </div>
