@@ -23,7 +23,14 @@ class ListController extends CoreController
      * Show details view
      */
     public function type($params)
-    {       
-        $this->show('type');
+    {  
+        $typeModel = new Type();
+        $type = $typeModel->find($params['id']);
+        $pokemons = $type->getPokemons();
+
+        $this->show('type', [
+            'pokemons' => $pokemons,
+            'type' => $type
+        ]);
     }
 }

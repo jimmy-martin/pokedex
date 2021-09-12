@@ -213,3 +213,8 @@ progress::-webkit-progress-value {
     color: var(--header-color);
     font-size: 1.3rem;
 }
+
+h2.type-desc{
+    font-size: 2.2rem;
+    font-weight: bold;
+}

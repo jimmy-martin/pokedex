@@ -1,3 +1,4 @@
+<h2 class="type-desc center"><?= $type->getName() ?></h2>
 <div class="cards-group">
     <?php foreach($pokemons as $pokemon) : ?>
     <div class="card">
