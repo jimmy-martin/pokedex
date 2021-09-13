@@ -5,15 +5,10 @@ namespace Pokedex\Models;
 use Pokedex\Utils\Database;
 use PDO;
 
-class PokemonType extends CoreModel
+class PokemonType extends Pokemon
 {
-    protected $pv;
-    protected $attack;
-    protected $defense;
-    protected $spe_attack;
-    protected $spe_defense;
-    protected $speed;
-    protected $number;
+    protected $id;
+    protected $name;
     
     protected $pokemon_number;
     protected $type_id;
