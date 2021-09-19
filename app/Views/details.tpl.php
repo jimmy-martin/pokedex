@@ -1,5 +1,5 @@
 <div class="detail">
-    <h2 class="detail__title">Détails de Herbizarre</h2>
+    <h2 class="detail__title">Détails de <?= $pokemon->getName() ?></h2>
     <div class="detail__specs">
         <img class="specs__img" src="<?= $_SERVER['BASE_URI'] ?>/img/<?= $pokemon->getNumber() ?>.png" alt="<?= $pokemon->getName() ?>">
         <div class="specs__details">
